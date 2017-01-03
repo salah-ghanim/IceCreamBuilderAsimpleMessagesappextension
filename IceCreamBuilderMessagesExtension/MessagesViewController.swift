@@ -18,6 +18,10 @@ class MessagesViewController: MSMessagesAppViewController {
         // Present the view controller appropriate for the conversation and presentation style.
         presentViewController(for: conversation, with: presentationStyle)
     }
+    // BUG: on iOS 10.2 this method is not called when a message is sent (MSSticeker for example)
+    override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
+        print("sent")
+    }
     
     // MARK: MSMessagesAppViewController
     
